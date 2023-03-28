@@ -15,8 +15,6 @@ An example of merge sort. First, divide the list into the smallest unit (1 eleme
 
 Average performance	: n(log(n))
 
-![Merge-Sort-Algorithm](https://user-images.githubusercontent.com/73845925/228335880-b74b1146-0665-4cb6-aeb4-ae893cd1f6f6.png)
-
 I used different container types here. These were map and vector. I tried few numbers at first and map gave faster results. Then I realized that vector is much faster when I give 3000 or more numbers.
 
 Here is the proof.
