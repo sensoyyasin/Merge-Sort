@@ -12,7 +12,6 @@ Repeatedly merge sublists to produce new sorted sublists until there is only one
 An example of merge sort. First, divide the list into the smallest unit (1 element), then compare each element with the adjacent list to sort and merge the two adjacent lists. Finally, all the elements are sorted and merged.
 |----------------------------------------------------------------------------------------------------------------------------------|
 |![Merge-sort-example-300px](https://user-images.githubusercontent.com/73845925/228335873-cd6487ae-e52d-4f43-af57-69d4981fe04c.gif)|
-|----------------------------------------------------------------------------------------------------------------------------------|
 
 Average performance	: n(log(n))
 
