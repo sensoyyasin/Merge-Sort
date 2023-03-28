@@ -19,4 +19,4 @@ I used different container types here. These were map and vector. I tried few nu
 
 Here is the proof.
 
-<img width="927" alt="Ekran Resmi 2023-03-28 21 31 30" src="https://user-images.githubusercontent.com/73845925/228335884-bae9c9d6-ab34-4c91-a4de-688a50e0506c.png">
+<img width="500" alt="Screenshot" src="https://user-images.githubusercontent.com/73845925/228335884-bae9c9d6-ab34-4c91-a4de-688a50e0506c.png">
