@@ -19,16 +19,8 @@ void	PMergeMeVector::addVector(char **argv, std::vector<int> *pvector)
 	int i = 0;
 	while (argv[i])
 	{
-		if (std::stoi(argv[i]) < 0)
-		{
-			std::cerr << "(-)Error" << std::endl;
-			exit(1);
-		}
-		else
-		{
-			pvector->push_back(std::stoi(argv[i]));
-			this->total_vector++;
-		}
+		pvector->push_back(std::stoi(argv[i]));
+		this->total_vector++;
 		i++;
 	}
 }
@@ -38,16 +30,8 @@ void	PMergeMeMap::addMap(char **argv, std::map<int, int> *pmap)
 	int i = 0;
 	while (argv[i])
 	{
-		if (std::stoi(argv[i]) < 0)
-		{
-			std::cerr << "(-)Error" << std::endl;
-			exit(1);
-		}
-		else
-		{
-			pmap->insert(std::pair<int, int>(i, std::stoi(argv[i])));
-			this->total_map++;
-		}
+		pmap->insert(std::pair<int, int>(i, std::stoi(argv[i])));
+		this->total_map++;
 		i++;
 	}
 }
