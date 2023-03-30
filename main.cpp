@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yasinsensoy <yasinsensoy@student.42.fr>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/30 22:36:13 by yasinsensoy       #+#    #+#             */
+/*   Updated: 2023/03/30 22:36:14 by yasinsensoy      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "PmergeMe.hpp"
 //Algoritmanın "n log n" zaman karmaşıklığı,
 //sıralanacak eleman sayısına (n) bağlı olarak logaritmik olarak büyüyen
@@ -17,7 +29,7 @@
 //ancak bilgisayarlar genellikle 2'nin katları üzerinde çalıştıklarından
 //logaritma tabanı genellikle 2 olarak seçilir.
 
-void	merge_map(std::map<int, int> &pmap, int left, int mid, int right)
+void merge_deque(std::deque<int> &pdeque, int left, int mid, int right)
 {
 	int n1 = mid - left + 1; // sol alt dizi boyutu
 	int n2 = right - mid; // sağ alt dizi boyutu
@@ -25,9 +37,9 @@ void	merge_map(std::map<int, int> &pmap, int left, int mid, int right)
 	int tempR[n2];
 
 	for (int i = 0; i < n1; i++)
-		tempL[i] = pmap[left + i];
+		tempL[i] = pdeque[left + i];
 	for (int j = 0; j < n2; j++)
-		tempR[j] = pmap[mid + j + 1];
+		tempR[j] = pdeque[mid + j + 1];
 
 	int i = 0;
 	int j = 0;
@@ -37,12 +49,12 @@ void	merge_map(std::map<int, int> &pmap, int left, int mid, int right)
 	{
 		if (tempL[i] <= tempR[j])
 		{
-			pmap[k] = tempL[i];
+			pdeque[k] = tempL[i];
 			i++;
 		}
 		else
 		{
-			pmap[k] = tempR[j];
+			pdeque[k] = tempR[j];
 			j++;
 		}
 		k++;
@@ -50,14 +62,14 @@ void	merge_map(std::map<int, int> &pmap, int left, int mid, int right)
 
 	while (i < n1) //sol alt dizideki elemanları ana diziye kopyala.
 	{
-		pmap[k] = tempL[i];
+		pdeque[k] = tempL[i];
 		i++;
 		k++;
 	}
 
 	while (j < n2) // sağ alt dizideki elemanları ana diziye kopyala
 	{
-		pmap[k] = tempR[j];
+		pdeque[k] = tempR[j];
 		j++;
 		k++;
 	}
@@ -109,14 +121,14 @@ void	merge_vec(std::vector<int> &pvec, int left, int mid, int right)
 	}
 }
 
-void	mergesortMap(std::map<int, int> &pmap, int left, int right)
+void	mergesortDeque(std::deque<int> &pdeque, int left, int right)
 {
 	if (left >= right)
 		return;
 	int	mid = left + (right - left) / 2;
-	mergesortMap(pmap, left, mid);
-	mergesortMap(pmap, mid + 1, right);
-	merge_map(pmap, left, mid, right);
+	mergesortDeque(pdeque, left, mid);
+	mergesortDeque(pdeque, mid + 1, right);
+	merge_deque(pdeque, left, mid, right);
 }
 
 void	mergesortVec(std::vector<int> &pvector, int left, int right)
@@ -170,16 +182,16 @@ int main(int argc, char **argv)
 	std::cout << "--------------------------" << std::endl;
 
 	clock_t t3 = clock();
-	PMergeMeMap obj2;
-	obj2.addMap(&argv[1], &obj2.map);
+	PMergeMeDeque obj2;
+	obj2.addDeque(&argv[1], &obj2.deque);
 	//std::cout << "Before:	"; obj2.printMap(obj2.map);
-	mergesortMap(obj2.map, 0, obj2.total_map - 1);
+	mergesortDeque(obj2.deque, 0, obj2.total_deque - 1);
 	//std::cout << "After:	"; obj2.printMap(obj2.map);
 	clock_t t4 = clock();
 	//std::cout << "Map size:	" << pmap.total_map << std::endl;
 	double	time_2 = double(t4 - t3);
 
-	std::cout << "Map mergesort Time: " << time_2 << std::endl;
+	std::cout << "Deque mergesort Time: " << time_2 << std::endl;
 
 	return(0);
 }

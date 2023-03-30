@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PmergeMe.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yasinsensoy <yasinsensoy@student.42.fr>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/30 22:36:16 by yasinsensoy       #+#    #+#             */
+/*   Updated: 2023/03/30 22:36:16 by yasinsensoy      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "PmergeMe.hpp"
 
 PMergeMeVector::PMergeMeVector()
@@ -7,12 +19,12 @@ PMergeMeVector::PMergeMeVector()
 
 PMergeMeVector::~PMergeMeVector() {}
 
-PMergeMeMap::PMergeMeMap()
+PMergeMeDeque::PMergeMeDeque()
 {
-	this->total_map = 0;
+	this->total_deque = 0;
 }
 
-PMergeMeMap::~PMergeMeMap() {}
+PMergeMeDeque::~PMergeMeDeque() {}
 
 void	PMergeMeVector::addVector(char **argv, std::vector<int> *pvector)
 {
@@ -25,26 +37,25 @@ void	PMergeMeVector::addVector(char **argv, std::vector<int> *pvector)
 	}
 }
 
-void	PMergeMeMap::addMap(char **argv, std::map<int, int> *pmap)
+void	PMergeMeDeque::addDeque(char **argv, std::deque<int> *pdeque)
 {
 	int i = 0;
 	while (argv[i])
 	{
-		pmap->insert(std::pair<int, int>(i, std::stoi(argv[i])));
-		this->total_map++;
+		pdeque->push_back(std::stoi(argv[i]));
+		this->total_deque++;
 		i++;
 	}
 }
 
-void	PMergeMeMap::printMap(std::map<int, int> &pmap)
+void	PMergeMeDeque::printDeque(std::deque<int> &pdeque)
 {
-	std::map<int, int>::iterator it;
+	std::deque<int>::iterator it;
 
-	it = pmap.begin();
-	while (it != pmap.end())
+	it = pdeque.begin();
+	while (it != pdeque.end())
 	{
-		//it->first indis, it->second value.
-		std::cout << it->second << " ";
+		std::cout << *it << std::endl;
 		++it;
 	}
 	std::cout << std::endl;

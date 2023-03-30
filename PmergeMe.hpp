@@ -1,24 +1,36 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yasinsensoy <yasinsensoy@student.42.fr>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/30 22:36:18 by yasinsensoy       #+#    #+#             */
+/*   Updated: 2023/03/30 22:36:19 by yasinsensoy      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PMERGEME_HPP
 # define PMERGEME_HPP
 
 #include <iostream>
 #include <string>
-#include <map>
+#include <deque>
 #include <vector>
 #include <time.h>
 
-class PMergeMeMap
+class PMergeMeDeque
 {
 public:
-	int total_map;
+	int total_deque;
 
-	PMergeMeMap();
-	~PMergeMeMap();
+	PMergeMeDeque();
+	~PMergeMeDeque();
 
-	std::map<int, int> map;
+	std::deque<int> deque;
 
-	void	addMap(char **argv, std::map<int, int> *pmap);
-	void	printMap(std::map<int, int> &pmap);
+	void	addDeque(char **argv, std::deque<int> *pdeque);
+	void	printDeque(std::deque<int> &pdeque);
 };
 
 class PMergeMeVector
