@@ -20,3 +20,10 @@ I used different container types here. These were map and vector. I tried few nu
 Here is the proof.
 
 <img width="750" alt="Screenshot" src="https://user-images.githubusercontent.com/73845925/228335884-bae9c9d6-ab34-4c91-a4de-688a50e0506c.png">
+
+
+finally i wanted to make vector and deque, i knew they were both fast but i changed it because i wanted to understand which is faster for multiple numbers.
+
+Here is the result.
+
+<img width="750" alt="Screenshot2" src="https://user-images.githubusercontent.com/73845925/228946065-c2d91ee1-44df-45e9-bfca-4b358efdb7ba.png">
