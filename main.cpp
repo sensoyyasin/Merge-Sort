@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yasinsensoy <yasinsensoy@student.42.fr>    +#+  +:+       +#+        */
+/*   By: ysensoy <ysensoy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 22:36:13 by yasinsensoy       #+#    #+#             */
-/*   Updated: 2023/03/30 22:36:14 by yasinsensoy      ###   ########.fr       */
+/*   Updated: 2023/04/01 13:54:08 by ysensoy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,6 +141,12 @@ void	mergesortVec(std::vector<int> &pvector, int left, int right)
 	merge_vec(pvector, left, mid , right);
 }
 
+template <typename T>
+T	add(int left, int right)
+{
+	return (left + right);
+}
+
 int main(int argc, char **argv)
 {
 	if (argc < 2)
@@ -170,28 +176,28 @@ int main(int argc, char **argv)
 	PMergeMeVector obj1;
 
 	obj1.addVector(&argv[1], &obj1.vector);
-	//std::cout << "Before:	"; obj1.printVec(obj1.vector);
+	std::cout << "Before:	"; obj1.printVec(obj1.vector);
 	mergesortVec(obj1.vector, 0, obj1.total_vector - 1);
-	//std::cout << "After:	"; obj1.printVec(obj1.vector);
+	std::cout << "After:	"; obj1.printVec(obj1.vector);
 	//std::cout << "Vector size:	" << pvector.total_vector << std::endl;
 	clock_t t2 = clock();
 
-	double	time_1 = double(t2 - t1);
-	std::cout << "Vector mergesort Time: " << time_1 << std::endl;
+	double	time_1 = double(t2 - t1) / CLOCKS_PER_SEC;
+	std::cout << "Time to process a range of " << obj1.total_vector << " elements with std::[..] : " << std::fixed << time_1 << " us" << std::endl;
+	//std::cout << "Vector mergesort Time: " << std::fixed << time_1 << std::endl;
 
 	std::cout << "--------------------------" << std::endl;
 
 	clock_t t3 = clock();
 	PMergeMeDeque obj2;
 	obj2.addDeque(&argv[1], &obj2.deque);
-	//std::cout << "Before:	"; obj2.printMap(obj2.map);
 	mergesortDeque(obj2.deque, 0, obj2.total_deque - 1);
-	//std::cout << "After:	"; obj2.printMap(obj2.map);
 	clock_t t4 = clock();
 	//std::cout << "Map size:	" << pmap.total_map << std::endl;
-	double	time_2 = double(t4 - t3);
+	double	time_2 = double(t4 - t3) / CLOCKS_PER_SEC;
 
-	std::cout << "Deque mergesort Time: " << time_2 << std::endl;
+	std::cout << "Time to process a range of " << obj2.total_deque << " elements with std::[..] : " << std::fixed << time_2 << " us" << std::endl;
+	//std::cout << "Deque mergesort Time: " << std::fixed << time_2 << std::endl;
 
 	return(0);
 }
