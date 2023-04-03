@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ysensoy <ysensoy@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yasinsensoy <yasinsensoy@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 22:36:13 by yasinsensoy       #+#    #+#             */
-/*   Updated: 2023/04/01 13:54:08 by ysensoy          ###   ########.fr       */
+/*   Updated: 2023/04/04 00:22:53 by yasinsensoy      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,12 +139,6 @@ void	mergesortVec(std::vector<int> &pvector, int left, int right)
 	mergesortVec(pvector, left, mid);
 	mergesortVec(pvector, mid + 1, right);
 	merge_vec(pvector, left, mid , right);
-}
-
-template <typename T>
-T	add(int left, int right)
-{
-	return (left + right);
 }
 
 int main(int argc, char **argv)
